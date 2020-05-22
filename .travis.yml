@@ -4,5 +4,15 @@ services:
   - docker
 
 scripts:
-  - docker build -t mannydesigns/node .
-  - docker images mannydesigns/node
+  - docker build -t leroy1260/node .
+  - docker images leroy1260/node
+
+# once your script is tested with travis test tool and now you want to deploy to dockerhub using the following.
+before_deploy:
+  - docker login -u leroy1260 -p leroy@123
+
+deploy:
+  provider: script
+  script: docker push leroy1260/node
+  on: 
+    branch: master
