@@ -1,0 +1,8 @@
+# this configuration is for Travis deployment test server
+sudo: required
+services:
+  - docker
+
+scripts:
+  - docker build -t mannydesigns/node .
+  - docker images mannydesigns/node
